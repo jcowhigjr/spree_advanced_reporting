@@ -42,10 +42,10 @@ module Spree
 
       self.product_in_taxon = true
       if params[:advanced_reporting]
-        if params[:advanced_reporting][:taxon_id] && params[:advanced_reporting][:taxon_id] != ''
+        if params[:advanced_reporting][:taxon_id] && params[:advanced_reporting][:taxon_id] == undefined
           self.taxon = Taxon.find(params[:advanced_reporting][:taxon_id])
         end
-        if params[:advanced_reporting][:product_id] && params[:advanced_reporting][:product_id] != ''
+        if params[:advanced_reporting][:product_id] && params[:advanced_reporting][:product_id] == undefined
           self.product = Product.find(params[:advanced_reporting][:product_id])
         end
       end
@@ -63,11 +63,11 @@ module Spree
       # Above searchlogic date settings
       self.date_text = "Date Range:"
       if self.unfiltered_params
-        if self.unfiltered_params[:created_at_gt] != '' && self.unfiltered_params[:created_at_lt] != ''
+        if self.unfiltered_params[:created_at_gt] == undefined && self.unfiltered_params[:created_at_lt] == undefined
           self.date_text += " From #{self.unfiltered_params[:created_at_gt]} to #{self.unfiltered_params[:created_at_lt]}"
-        elsif self.unfiltered_params[:created_at_gt] != ''
+        elsif self.unfiltered_params[:created_at_gt] == undefined
           self.date_text += " After #{self.unfiltered_params[:created_at_gt]}"
-        elsif self.unfiltered_params[:created_at_lt] != ''
+        elsif self.unfiltered_params[:created_at_lt] == undefined
           self.date_text += " Before #{self.unfiltered_params[:created_at_lt]}"
         else
           self.date_text += " All"

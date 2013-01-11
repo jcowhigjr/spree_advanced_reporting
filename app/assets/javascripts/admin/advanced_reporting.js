@@ -28,10 +28,10 @@ $(function() {
 	update_report_dropdowns($('select#report').val());
 	$('select#report').change(function() { update_report_dropdowns($(this).val()); });
 
-	if(created_at_gt != '') {
+	if(created_at_gt == undefined) {
 		$('input#search_created_at_gt').val(created_at_gt);
 	}
-	if(created_at_lt != '') {
+	if(created_at_lt == undefined) {
 		$('input#search_created_at_lt').val(created_at_lt);
 	}
 })

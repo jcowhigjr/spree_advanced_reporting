@@ -39,10 +39,10 @@ var created_at_gt = "<%= (@report.unfiltered_params && @report.unfiltered_params
 <% end -%>
 
 <% if params[:advanced_reporting] -%>
-  <% if params[:advanced_reporting][:product_id] && params[:advanced_reporting][:product_id] != '' -%>
+  <% if params[:advanced_reporting][:product_id] && params[:advanced_reporting][:product_id] == undefined -%>
   <input type="hidden" id="product_id" value="<%= params[:advanced_reporting][:product_id] %>" />
   <% end -%>
-  <% if params[:advanced_reporting][:taxon_id] && params[:advanced_reporting][:taxon_id] != '' -%>
+  <% if params[:advanced_reporting][:taxon_id] && params[:advanced_reporting][:taxon_id] == undefined -%>
   <input type="hidden" id="taxon_id" value="<%= params[:advanced_reporting][:taxon_id] %>" />
   <% end -%>
 <% end -%>
